@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.11",
     "ramda": "^0.26.1",
     "ramda-adjunct": "^2.16.1",
     "react": "^16.8.3",
