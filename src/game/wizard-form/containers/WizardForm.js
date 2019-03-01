@@ -6,6 +6,7 @@ import {
   isSecondPageSelector,
   isThirdPageSelector,
   isFourthPageSelector,
+  isResultPageSelector,
 } from '../selectors';
 
 const mapStateToProps = (state, props) => ({
@@ -13,6 +14,7 @@ const mapStateToProps = (state, props) => ({
   isSecondPage: isSecondPageSelector(state, props),
   isThirdPage: isThirdPageSelector(state, props),
   isFourthPage: isFourthPageSelector(state, props),
+  isResultPage: isResultPageSelector(state, props),
 });
 
 export default connect(mapStateToProps)(WizardForm);
