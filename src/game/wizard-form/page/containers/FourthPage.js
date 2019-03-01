@@ -6,9 +6,11 @@ import {
   fourthPageLabelSelector,
   fourthPageHasPrevPageSelector,
 } from '../selectors';
+import { pageSelector } from '../../selectors';
 import { goToNextPage, goToPrevPage } from '../actions';
 
 const mapStateToProps = (state, props) => ({
+  page: pageSelector(state, props),
   id: fourthPageIdSelector(state, props),
   label: fourthPageLabelSelector(state, props),
   hasPrevPage: fourthPageHasPrevPageSelector(state, props),

@@ -6,9 +6,11 @@ import {
   secondPageLabelSelector,
   secondPageHasPrevPageSelector,
 } from '../selectors';
+import { pageSelector } from '../../selectors';
 import { goToNextPage, goToPrevPage } from '../actions';
 
 const mapStateToProps = (state, props) => ({
+  page: pageSelector(state, props),
   id: secondPageIdSelector(state, props),
   label: secondPageLabelSelector(state, props),
   hasPrevPage: secondPageHasPrevPageSelector(state, props),

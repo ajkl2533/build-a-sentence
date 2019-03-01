@@ -8,6 +8,7 @@ import validate from '../validate';
 
 class Page extends React.Component {
   static propTypes = {
+    page: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     hasPrevPage: PropTypes.bool.isRequired,
@@ -40,29 +41,43 @@ class Page extends React.Component {
   }
 
   render() {
-    const { id, label, hasPrevPage, invalid } = this.props;
+    const { page, id, label, hasPrevPage, invalid } = this.props;
 
     return (
       <form>
+        <div className="subtitle">
+          <span className="is-size-3">{page}</span>
+          /4
+        </div>
         <Field name={id} component={renderField} label={label} />
-        <div>
+        <div className="columns">
           {hasPrevPage && (
+            <div className="column is-one-fifth">
+              <button
+                type="button"
+                className="button is-medium is-outlined is-danger is-inverted is-fullwidth previous"
+                onClick={this.onPrevPageClick}
+              >
+                <span className="icon">
+                  <i className="fas fa-arrow-left" />
+                </span>
+                <span>Previous</span>
+              </button>
+            </div>
+          )}
+          <div className="column is-one-fifth">
             <button
               type="button"
-              className="previous"
-              onClick={this.onPrevPageClick}
+              className="button is-medium is-outlined is-success is-inverted is-fullwidth next"
+              onClick={this.onNextPageClick}
+              disabled={invalid}
             >
-              Previous
+              <span>Next</span>
+              <span className="icon">
+                <i className="fas fa-arrow-right" />
+              </span>
             </button>
-          )}
-          <button
-            type="button"
-            className="next"
-            onClick={this.onNextPageClick}
-            disabled={invalid}
-          >
-            Next
-          </button>
+          </div>
         </div>
       </form>
     );
