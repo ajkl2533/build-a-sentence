@@ -6,13 +6,17 @@ import SecondPage from '../page/containers/SecondPage';
 import ThirdPage from '../page/containers/ThirdPage';
 import FourthPage from '../page/containers/FourthPage';
 
-
-const WizardForm = ({ isFirstPage, isSecondPage, isThirdPage, isFourthPage }) => (
+const WizardForm = ({
+  isFirstPage,
+  isSecondPage,
+  isThirdPage,
+  isFourthPage,
+}) => (
   <section>
-    {isFirstPage && (<FirstPage />)}
-    {isSecondPage && (<SecondPage />)}
-    {isThirdPage && (<ThirdPage />)}
-    {isFourthPage && (<FourthPage />)}
+    {isFirstPage && <FirstPage />}
+    {isSecondPage && <SecondPage />}
+    {isThirdPage && <ThirdPage />}
+    {isFourthPage && <FourthPage />}
   </section>
 );
 

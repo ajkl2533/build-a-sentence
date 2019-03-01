@@ -1,7 +1,6 @@
 import { createSelector } from 'reselect';
 import { equals, path } from 'ramda';
 
-
 export const pageSelector = path(['game', 'router', 'page']);
 
 export const isFirstPageSelector = createSelector(

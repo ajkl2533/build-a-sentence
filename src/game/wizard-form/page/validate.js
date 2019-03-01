@@ -1,16 +1,15 @@
 import { either } from 'ramda';
-import { isUndefined,  isEmptyString } from 'ramda-adjunct';
-import { 
-  firstPageIdSelector, secondPageIdSelector, thirdPageIdSelector, fourthPageIdSelector,
+import { isUndefined, isEmptyString } from 'ramda-adjunct';
+import {
+  firstPageIdSelector,
+  secondPageIdSelector,
+  thirdPageIdSelector,
+  fourthPageIdSelector,
 } from './selectors';
-
 
 const validate = values => {
   const errors = {};
-  const isEmptyField = either(
-    isUndefined,
-    isEmptyString,
-  );
+  const isEmptyField = either(isUndefined, isEmptyString);
   const firstPageFieldId = firstPageIdSelector();
   const secondPageFieldId = secondPageIdSelector();
   const thirdPageFieldId = thirdPageIdSelector();
@@ -18,7 +17,7 @@ const validate = values => {
 
   if (isEmptyField(values[firstPageFieldId])) {
     errors[firstPageFieldId] = 'This field is required';
-  } 
+  }
 
   if (isEmptyField(values[secondPageFieldId])) {
     errors[secondPageFieldId] = 'This field is required';
@@ -33,6 +32,6 @@ const validate = values => {
   }
 
   return errors;
-}
+};
 
 export default validate;

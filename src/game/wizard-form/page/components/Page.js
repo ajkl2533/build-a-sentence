@@ -6,7 +6,6 @@ import { noop } from 'ramda-adjunct';
 import renderField from '../../../common/renderField';
 import validate from '../validate';
 
-
 class Page extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
@@ -15,11 +14,11 @@ class Page extends React.Component {
     invalid: PropTypes.bool.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onPrevClick: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     onClick: noop,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -45,20 +44,20 @@ class Page extends React.Component {
 
     return (
       <form>
-        <Field
-          name={id}
-          component={renderField}
-          label={label}
-        />
+        <Field name={id} component={renderField} label={label} />
         <div>
           {hasPrevPage && (
-            <button type="button" className="previous" onClick={this.onPrevPageClick}>
+            <button
+              type="button"
+              className="previous"
+              onClick={this.onPrevPageClick}
+            >
               Previous
             </button>
           )}
-          <button 
-            type="button" 
-            className="next" 
+          <button
+            type="button"
+            className="next"
             onClick={this.onNextPageClick}
             disabled={invalid}
           >

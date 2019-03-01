@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 
 import Page from '../components/Page';
-import { secondPageIdSelector, secondPageLabelSelector, secondPageHasPrevPageSelector } from '../selectors';
+import {
+  secondPageIdSelector,
+  secondPageLabelSelector,
+  secondPageHasPrevPageSelector,
+} from '../selectors';
 import { goToNextPage, goToPrevPage } from '../actions';
-
 
 const mapStateToProps = (state, props) => ({
   id: secondPageIdSelector(state, props),
@@ -16,4 +19,7 @@ const mapDispatchToProps = dispatch => ({
   onNextClick: () => dispatch(goToNextPage()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Page);
