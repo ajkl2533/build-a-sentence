@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import { noop } from 'ramda-adjunct';
 
 import renderField from '../../../common/renderField';
+import validate from '../validate';
 
 
 class Page extends React.Component {
@@ -11,6 +12,7 @@ class Page extends React.Component {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     hasPrevPage: PropTypes.bool.isRequired,
+    invalid: PropTypes.bool.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onPrevClick: PropTypes.func,
   }
@@ -39,7 +41,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { id, label, hasPrevPage } = this.props;
+    const { id, label, hasPrevPage, invalid } = this.props;
 
     return (
       <form>
@@ -54,7 +56,12 @@ class Page extends React.Component {
               Previous
             </button>
           )}
-          <button type="button" className="next" onClick={this.onNextPageClick}>
+          <button 
+            type="button" 
+            className="next" 
+            onClick={this.onNextPageClick}
+            disabled={invalid}
+          >
             Next
           </button>
         </div>
@@ -65,6 +72,7 @@ class Page extends React.Component {
 
 export default reduxForm({
   form: 'wizardForm',
+  validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
 })(Page);
