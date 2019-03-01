@@ -1,6 +1,8 @@
-import { defaultTo } from 'ramda';
+import { combineReducers } from 'redux';
+
+import pageReducer from './wizard-form/page/reducers';
 
 
-const gameReducer = defaultTo({});
-
-export default gameReducer;
+export default combineReducers({
+  router: pageReducer,
+});
