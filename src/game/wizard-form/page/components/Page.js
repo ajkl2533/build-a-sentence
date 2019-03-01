@@ -17,7 +17,7 @@ class Page extends React.Component {
   };
 
   static defaultProps = {
-    onClick: noop,
+    onPrevClick: noop,
   };
 
   constructor(props) {

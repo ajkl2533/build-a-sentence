@@ -14,8 +14,8 @@ const store = createStore(
     form: formReducer,
   }),
   typeof window !== 'undefined' &&
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && // eslint-disable-line no-underscore-dangle,no-undef
+    window.__REDUX_DEVTOOLS_EXTENSION__(), // eslint-disable-line no-underscore-dangle,no-undef
 );
 
 ReactDOM.render(
