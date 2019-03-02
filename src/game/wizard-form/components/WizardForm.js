@@ -14,12 +14,16 @@ const WizardForm = ({
   isFourthPage,
   isResultPage,
 }) => (
-  <section>
-    {isFirstPage && <FirstPage />}
-    {isSecondPage && <SecondPage />}
-    {isThirdPage && <ThirdPage />}
-    {isFourthPage && <FourthPage />}
-    {isResultPage && <Result />}
+  <section className="hero is-dark is-bold is-fullheight">
+    <div className="hero-body">
+      <div className="container">
+        {isFirstPage && <FirstPage />}
+        {isSecondPage && <SecondPage />}
+        {isThirdPage && <ThirdPage />}
+        {isFourthPage && <FourthPage />}
+        {isResultPage && <Result />}
+      </div>
+    </div>
   </section>
 );
 
