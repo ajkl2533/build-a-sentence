@@ -67,7 +67,7 @@ class Page extends React.Component {
           )}
           <div className="column is-one-fifth">
             <button
-              type="button"
+              type="submit"
               className="button is-medium is-outlined is-success is-inverted is-fullwidth next"
               onClick={this.onNextPageClick}
               disabled={invalid}
